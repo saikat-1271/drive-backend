@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 
 @Entity('f_folder')
-export class Sample {
+export class Folder {
   @PrimaryGeneratedColumn('increment')
   id: number;
 

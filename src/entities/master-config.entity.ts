@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 
 @Entity('m_config')
-export class DrDocuments {
+export class Config {
   @PrimaryGeneratedColumn('increment')
   id: number;
 

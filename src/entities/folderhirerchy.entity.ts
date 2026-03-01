@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 
 @Entity('f_folderhirerchy')
-export class Sample {
+export class FolderHirerchy {
   @PrimaryGeneratedColumn('increment')
   id: number;
 
