@@ -1,18 +1,20 @@
-import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+// src/config/db.config.ts
 
-export const databaseConfig: TypeOrmModuleOptions = {
-  type: 'postgres',
-  host: 'database-2.c1oecuiky2hj.eu-north-1.rds.amazonaws.com',
-  port: 5432,
-  username: 'postgres',
-  password: 'qpwFq09NkXuIqJIQvK1t',
-  database: 'postgres',
-  ssl: {
-    rejectUnauthorized: false,
-  },
-  entities: [__dirname + '/../entities/*.entity{.ts,.js}'],
-  synchronize: true, // Set to false in production
-  logging: true,
+import { TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
+import { ConfigService } from '@nestjs/config';
+
+export const databaseConfig: TypeOrmModuleAsyncOptions = {
+  inject: [ConfigService],
+  useFactory: (config: ConfigService) => ({
+    type: 'postgres',
+    host: config.get<string>('DB_HOST'),
+    port: config.get<number>('DB_PORT') || 5432,
+    username: config.get<string>('DB_USERNAME'),
+    password: config.get<string>('DB_PASSWORD'),
+    database: config.get<string>('DB_DATABASE'),
+    ssl: { rejectUnauthorized: false },
+    autoLoadEntities: true,
+    synchronize: true, // ❌ false in production
+    logging: true,
+  }),
 };
-
-export default databaseConfig;

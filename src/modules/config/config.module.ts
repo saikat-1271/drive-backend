@@ -10,4 +10,4 @@ import { Config } from '../../entities/master-config.entity';
   imports: [TypeOrmModule.forFeature([Config])],
   providers: [ConfigService, ConfigRepository],
 })
-export class ConfigModule {}
+export class configModule {}

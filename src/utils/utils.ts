@@ -5,7 +5,7 @@ const ALGORITHM = 'aes-256-cbc';
 // ⚠️ Must be 32 bytes for aes-256
 const SECRET_KEY = crypto
   .createHash('sha256')
-  .update(String(process.env.AES_SECRET || 'my_super_secret_key'))
+  .update(String(process.env.KEY))
   .digest(); // 32 bytes
 
 // Encrypt
