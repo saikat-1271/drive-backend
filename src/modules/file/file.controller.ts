@@ -8,6 +8,7 @@ import {
   Delete,
   UsePipes,
   ValidationPipe,
+  Query,
 } from '@nestjs/common';
 import { FileService } from './file.service';
 import { CreateFileDto } from './dto/create-file.dto';
@@ -19,6 +20,7 @@ import {
   ApiResponse,
   ApiBearerAuth,
 } from '@nestjs/swagger';
+import { DocumentListQueryDto } from './dto/document-list-query.dto';
 
 @ApiTags('file')
 @ApiBearerAuth()
@@ -36,10 +38,9 @@ export class FileController {
   @Get()
   @ApiOperation({ summary: 'Get all files' })
   @ApiResponse({ status: 200, description: 'List of files.' })
-  findAll() {
-    return this.fileService.findAll();
+  findAll(@Query() query: DocumentListQueryDto) {
+    return this.fileService.getDocumentList(query);
   }
-
   @Get(':id')
   @ApiOperation({ summary: 'Get a file by ID' })
   @ApiResponse({ status: 200, description: 'File found.' })
