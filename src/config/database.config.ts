@@ -2,6 +2,9 @@
 
 import { TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
 import { ConfigService } from '@nestjs/config';
+import { Folder } from 'src/modules/folder/entities/folder.entity';
+import { File } from 'src/modules/file/entities/file.entity';
+import { Config } from 'src/modules/config/entities/master-config.entity';
 
 export const databaseConfig: TypeOrmModuleAsyncOptions = {
   inject: [ConfigService],
@@ -14,7 +17,7 @@ export const databaseConfig: TypeOrmModuleAsyncOptions = {
     database: config.get<string>('DB_DATABASE'),
     ssl: { rejectUnauthorized: false },
     autoLoadEntities: true,
-    synchronize: true, // ❌ false in production
+    // synchronize: true, // ❌ false in production
     logging: true,
   }),
 };

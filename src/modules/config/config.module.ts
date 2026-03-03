@@ -3,7 +3,7 @@ import { ConfigService } from './config.service';
 import { ConfigController } from './config.controller';
 import { ConfigRepository } from './config.repository';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Config } from '../../entities/master-config.entity';
+import { Config } from './entities/master-config.entity';
 
 @Module({
   controllers: [ConfigController],

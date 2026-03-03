@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Config } from '../../entities/master-config.entity';
+import { Config } from './entities/master-config.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 

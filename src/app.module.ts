@@ -5,6 +5,8 @@ import { AppService } from './app.service';
 import { databaseConfig } from './config/database.config';
 import { configModule } from './modules/config/config.module';
 import { ConfigModule } from '@nestjs/config';
+import { FileModule } from './modules/file/file.module';
+import { FolderModule } from './modules/folder/folder.module';
 
 @Module({
   imports: [
@@ -13,6 +15,8 @@ import { ConfigModule } from '@nestjs/config';
     }),
     TypeOrmModule.forRootAsync(databaseConfig),
     configModule,
+    FileModule,
+    FolderModule,
   ],
   controllers: [AppController],
   providers: [AppService],

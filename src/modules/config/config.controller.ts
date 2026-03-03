@@ -9,5 +9,4 @@ export class ConfigController {
   find() {
     return this.configService.find();
   }
-
 }

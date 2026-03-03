@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigRepository } from './config.repository';
-import { Config } from '../../entities/master-config.entity';
+import { Config } from './entities/master-config.entity';
 import { encrypt } from 'src/utils/utils';
 
 @Injectable()

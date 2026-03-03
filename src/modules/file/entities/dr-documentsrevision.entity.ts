@@ -27,6 +27,9 @@ export class DrDocumentsRevision {
   @Column({ name: 'createdy' })
   createdy: number;
 
+  @Column({ name: 'createdy' })
+  docid: number;
+
   @Column({ name: 'modifyby' })
   modifyby: number;
 
